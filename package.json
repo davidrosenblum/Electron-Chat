@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "events": "^3.0.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "websocket": "^1.0.28"
+  },
+  "main": "src/Server.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  }
+}

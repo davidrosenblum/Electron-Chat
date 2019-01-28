@@ -16,7 +16,8 @@ class Client extends EventEmitter{
     connect(){
         // only connect if not connected
         if(!this.isConnected){
-            let url = "ws://localhost:8080";
+            // get connection url
+            let url = this.getSocketURL();
 
             // create the websocket (auto-connects)
             this.socket = new WebSocket(url);
@@ -98,6 +99,26 @@ class Client extends EventEmitter{
         if(this.isConnected){
             this.socket.close();
         }
+    }
+
+    // gets websocket connection url
+    getSocketURL(){
+        let host = window.location.origin.includes("https:") ? "wss:" : "ws:";
+
+        switch(window.location.origin){
+            case "file://":
+                host += "//electronchat.herokuapp.com/";
+                break;
+            case "localhost":
+                host += "localhost:8080";
+                break;
+            default:
+                // duplicate of localhost case incase it changes 
+                host += "localhost:8080";
+                break;
+        }
+
+        return host;
     }
 
     // getter for is connected

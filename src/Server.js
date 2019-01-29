@@ -59,14 +59,14 @@ class Server{
     }
 
     // handle websocket requests 
-    handleRequest(user, {type, data}){
+    handleRequest(fromUser, {type, data}){
         // user = websocket user (wraps the connection)
         // type = request type, data = request data
 
         switch(type){
             case "chat":
                 // chat request - broadcast to all 
-                this.forEachUser(user => user.sendChat(data.text, user.pin));
+                this.forEachUser(user => user.sendChat(data.text, fromUser.pin));
                 break;
             default:
                 break;

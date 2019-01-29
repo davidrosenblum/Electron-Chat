@@ -68,6 +68,9 @@ class Server{
                 // chat request - broadcast to all 
                 this.forEachUser(user => user.sendChat(data.text, fromUser.pin));
                 break;
+            case "all-users":
+                // get all connected users
+                fromUser.sendAllUsers(Object.keys(this._users));
             default:
                 break;
         }

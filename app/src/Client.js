@@ -77,6 +77,11 @@ class Client extends EventEmitter{
                 let {pin} = data;
                 this.pin = pin;
                 this.emit("pin");
+                break;
+            case "all-users":
+                let {userPins} = data;
+                this.emit("all-users", {userPins});
+                break;
             default:
                 break;
         }
@@ -85,6 +90,11 @@ class Client extends EventEmitter{
     // sends chat request
     sendChat(text){
         this.send("chat", {text});
+    }
+
+    // requests all online users
+    getAllUsers(){
+        this.send("all-users");
     }
 
     // sends a formatted string to the server

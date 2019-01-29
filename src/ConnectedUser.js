@@ -52,6 +52,11 @@ class ConnectedUser extends EventEmitter{
         this.send("chat", {text, from});
     }
 
+    // sends every user p;in
+    sendAllUsers(userPins){
+        this.send("all-users", {userPins});
+    }
+
     // sends a formatted string
     send(type, data){
         this._conn.send(JSON.stringify({type, data}) + DELIM);

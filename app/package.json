@@ -1,7 +1,7 @@
 {
   "name": "Electron-Chat",
   "author": "David Rosenblum",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Test project for using Electron + React + WebSockets + Node.js + Child_Process",
   "dependencies": {
     "bootstrap": "^4.2.1",
@@ -26,6 +26,9 @@
     "appId": "com.david.electronchat",
     "win": {
       "target": "nsis"
+    },
+    "linux": {
+      "target": "deb"
     }
   },
   "browserslist": [

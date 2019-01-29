@@ -1,5 +1,7 @@
 import React from "react";
 import { Container } from "reactstrap";
+import { CommandsMenu } from "./CommandsMenu";
+import { InfoModal } from "./InfoModal";
 import Client from "../Client";
 import "./App.css";
 
@@ -81,7 +83,12 @@ export class App extends React.Component{
                             onKeyUp={this.onInput.bind(this)}
                         />
                     </div>
+                    <div>
+                        <br/>
+                        <CommandsMenu/>
+                    </div>
                 </Container>
+                <InfoModal/>
             </div>
         );
     }
